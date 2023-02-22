@@ -13,6 +13,12 @@ abstract class TransportFactory {
     }
 }
 
+class PlaneFactory extends TransportFactory {
+    function create(): Transport {
+        return new Plane();
+    }
+}
+
 class Plane implements Transport {
     function deliver(): string {
         return "delivered by plane";
