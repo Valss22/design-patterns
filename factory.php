@@ -25,4 +25,11 @@ class Plane implements Transport {
     }
 }
 
+function service(TransportFactory $transport) {
+    $result = $transport->deliver();
+    return $result;
+}
+
+echo service(new PlaneFactory());
+
 ?>
