@@ -25,11 +25,24 @@ class Plane implements Transport {
     }
 }
 
+class TruckFactory extends TransportFactory {
+    function create(): Transport {
+        return new Truck();
+    }
+}
+
+class Truck implements Transport {
+    function deliver(): string {
+        return "delivered by truck";
+    }
+}
+
 function service(TransportFactory $transport) {
     $result = $transport->deliver();
     return $result;
 }
 
 echo service(new PlaneFactory());
+echo service(new TruckFactory());
 
 ?>
